@@ -129,7 +129,7 @@ visualize_cam(
 
 ```
 
-![All CAMs](outputs\all_cams.png)
+![All CAMs](outputs/all_cams.png)
 
 ### Plot Comparative Metric Curves
 To compare the performance of multiple CAMs using Insertion/Deletion, pass a dictionary of results to plot_curves
