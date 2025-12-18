@@ -147,7 +147,7 @@ InsertionDeletion.plot_curves(
 )
 
 ```
-![All CAMs](outputs/all_cams_deletion.png)
+![All CAMs](outputs/all_cams_insertion.png)
 
 ```python
 # Deletion curves comparison
