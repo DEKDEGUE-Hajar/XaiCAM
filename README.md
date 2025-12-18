@@ -15,7 +15,7 @@ import torch
 from torchvision.models import vgg19
 from torchvision.transforms.functional import to_tensor, resize, normalize
 from PIL import Image
-from XaiVisionCAM import GradCAM
+from xaicam import GradCAM
 
 # Configuration
 IMAGE_PATH = "path/to/your/image.png"
@@ -37,7 +37,7 @@ with GradCAM(model, target_layer=None) as cam_extractor:
 ### Evaluate with Average Drop/Increase in Confidence
 
 ```python
-from XaiVisionCAM.metrics import AvgDropConf
+from xaicam.metrics import AvgDropConf
 
 metric = AvgDropConf(model, cam, input_tensor, class_idx=predicted_class)
 avgdrop_summary = metric.summary()
@@ -50,7 +50,7 @@ print(f"AvgDrop/Increase: {avgdrop_summary}")
 Insertion and Deletion are fidelity metrics that quantify how quickly the model's output changes as pixels are revealed (Insertion) or removed (Deletion) based on the saliency map order.
 
 ```python
-from XaiVisionCAM.metrics import AvgDropConf
+from xaicam.metrics import AvgDropConf
 
 metric = AvgDropConf(model, cam, input_tensor, class_idx=predicted_class)
 avgdrop_summary = metric.summary()
@@ -61,7 +61,7 @@ print(f"AvgDrop/Increase: {avgdrop_summary}")
 
 
 ```python
-from XaiVisionCAM.metrics import InsertionDeletion
+from xaicam.metrics import InsertionDeletion
 
 # Insertion
 insdel_ins = InsertionDeletion(model=model, mode="Insertion")
@@ -111,7 +111,7 @@ The package supports easy comparison of multiple CAM methods on the same image.
 Use the visualize_cam utility to display all generated heatmaps side-by-side.
 
 ```python
-from XaiVisionCAM.utils import visualize_cam
+from xaicam.utils import visualize_cam
 
 # A dictionary mapping CAM names to their generated Tensor
 cams = {
@@ -147,7 +147,7 @@ InsertionDeletion.plot_curves(
 )
 
 ```
-![All CAMs](outputs\all_cams_deletion.png)
+![All CAMs](outputs/all_cams_deletion.png)
 
 ```python
 # Deletion curves comparison
@@ -160,7 +160,7 @@ InsertionDeletion.plot_curves(
 )
 
 ```
-![All CAMs](outputs\all_cams_deletion.png)
+![All CAMs](outputs/all_cams_deletion.png)
 
 
 ## CAM Zoo
